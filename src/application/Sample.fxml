@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="1578.0" prefWidth="1468.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SampleController">
+	<top>
+		<TabPane prefHeight="400.0" prefWidth="1140.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+			<tabs>
+				<Tab onSelectionChanged="#blockItems1" text="Ewidencja dawek ">
+					<content>
+						<TableView fx:id="table" onMouseClicked="#showOnClick">
+							<columns>
+								<TableColumn fx:id="numerZalecenia" prefWidth="110.40002136230487" text="Numer zalecenia" />
+								<TableColumn fx:id="peselCol" prefWidth="112.79998779296875" text="Pesel" />
+								<TableColumn fx:id="imieCol" minWidth="0.0" prefWidth="78.40003967285156" text="Imie" />
+								<TableColumn fx:id="nazwiskoCol" minWidth="1.600006103515625" prefWidth="116.79998779296875" text="Nazwisko" />
+								<TableColumn fx:id="plecCol" minWidth="5.600006103515625" prefWidth="111.20001220703125" text="Plec" />
+								<TableColumn fx:id="wiekCol" prefWidth="90.0" text="Wiek" />
+								<TableColumn fx:id="wzrostCol" minWidth="0.0" prefWidth="122.4000244140625" text="Wzrost" />
+								<TableColumn fx:id="wagaCol" prefWidth="96.0" text="Waga" />
+								<TableColumn fx:id="lekCol" prefWidth="134.39996337890625" text="Lek" />
+								<TableColumn fx:id="dawkaCol" prefWidth="198.400146484375" text="Dawka dzienna [mg]" />
+							</columns>
+						</TableView>
+					</content>
+				</Tab>
+				<Tab onSelectionChanged="#blockItems2" text="Ewidencja lekow">
+					<content>
+						<TableView fx:id="table2" onMouseClicked="#showOnClickLek" prefHeight="677.0" prefWidth="1010.0">
+							<columns>
+								<TableColumn fx:id="idCol" prefWidth="75.0" text="Kod leku" />
+								<TableColumn fx:id="nazwaLekuCol" prefWidth="75.0" text="Nazwa" />
+								<TableColumn fx:id="mocCol" prefWidth="75.0" text="Dawka (tabletka)" />
+								<TableColumn fx:id="postacCol" prefWidth="75.0" text="Postac" />
+								<TableColumn fx:id="opakowaniaCol" prefWidth="253.60009765625" text="Ilosc tabletek (opakowanie)" />
+								<TableColumn fx:id="substancjaCzynnaCol" prefWidth="160.80010986328125" text="substancja czynna" />
+								<TableColumn fx:id="iloscCol" prefWidth="126.4000244140625" text="Stan" />
+								<TableColumn fx:id="ulotkaCol" prefWidth="204.7999267578125" text="Ulotka" />
+							</columns>
+						</TableView>
+					</content>
+				</Tab>
+			</tabs>
+		</TabPane>
+	</top>
+	<center>
+		<AnchorPane prefHeight="900.0" prefWidth="1009.0" BorderPane.alignment="CENTER">
+			<children>
+				<TitledPane animated="false" layoutX="14.0" layoutY="17.0" prefHeight="390.0" prefWidth="1424.0" text="Dodawanie zalecenia">
+					<content>
+						<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="314.0" prefWidth="1422.0">
+							<children>
+								<Rectangle arcHeight="5.0" arcWidth="5.0" fill="#dadada" height="200.0" layoutX="1018.0" layoutY="109.0" opacity="0.3" stroke="BLACK" strokeLineCap="BUTT" strokeLineJoin="ROUND" strokeType="INSIDE" width="338.0" />
+								<Rectangle arcHeight="5.0" arcWidth="5.0" fill="#dadada" height="305.0" layoutX="992.0" layoutY="38.0" opacity="0.3" stroke="BLACK" strokeLineCap="BUTT" strokeLineJoin="ROUND" strokeType="INSIDE" width="396.0" />
+								<Rectangle arcHeight="5.0" arcWidth="5.0" fill="#dadada" height="193.0" layoutX="221.0" layoutY="101.0" opacity="0.5" stroke="BLACK" strokeType="INSIDE" width="694.0" />
+								<Rectangle arcHeight="5.0" arcWidth="5.0" fill="#dadada" height="301.0" layoutX="12.0" layoutY="41.0" opacity="0.3" stroke="BLACK" strokeLineCap="BUTT" strokeLineJoin="ROUND" strokeType="INSIDE" width="931.0" />
+								<Rectangle arcHeight="5.0" arcWidth="5.0" fill="#dadada" height="192.0" layoutX="27.0" layoutY="102.0" opacity="0.3" stroke="BLACK" strokeLineCap="BUTT" strokeLineJoin="ROUND" strokeType="INSIDE" width="174.0" />
+
+								<Button layoutX="54.0" layoutY="152.0" onAction="#addNewPacjent" prefHeight="25.0" prefWidth="120.0" text="Dodaj zalecenie" />
+								<TextField fx:id="addPesel" layoutX="290.0" layoutY="130.0" prefHeight="26.0" prefWidth="116.0" promptText="Wpisz pesel" />
+								<TextField fx:id="addImie" layoutX="291.0" layoutY="186.0" prefHeight="26.0" prefWidth="114.0" promptText="Wpisz imię" />
+								<TextField fx:id="addNazwisko" layoutX="292.0" layoutY="236.0" prefHeight="26.0" prefWidth="112.0" promptText="Wpisz nazwisko" />
+								<TextField fx:id="addPlec" layoutX="494.0" layoutY="137.0" prefHeight="26.0" prefWidth="88.0" promptText="Podaj płeć" />
+								<TextField fx:id="addWzrost" layoutX="494.0" layoutY="177.0" prefHeight="26.0" prefWidth="89.0" promptText="Podaj wzrost" />
+								<TextField fx:id="addWiek" layoutX="495.0" layoutY="216.0" prefHeight="26.0" prefWidth="88.0" promptText="Podaj wiek" />
+
+								<TextField fx:id="addWaga" layoutX="494.0" layoutY="257.0" prefHeight="26.0" prefWidth="89.0" promptText="Podaj wagę" />
+								<TextField fx:id="addLek" layoutX="738.0" layoutY="130.0" prefHeight="26.0" prefWidth="137.0" promptText="Wybierz nazwę leku" />
+								<TextField fx:id="addDawka" layoutX="738.0" layoutY="184.0" prefHeight="26.0" prefWidth="139.0" promptText="Wprowadź dawkę dzienną">
+									<font>
+										<Font size="10.0" />
+									</font>
+								</TextField>
+								<TextField fx:id="addLiczbaDni" layoutX="736.0" layoutY="236.0" prefHeight="26.0" prefWidth="139.0" promptText="Wprowadź liczbę dni" />
+								<Button layoutX="54.0" layoutY="194.0" mnemonicParsing="false" onMouseClicked="#deletePacjent" prefHeight="25.0" prefWidth="120.0" text="Usuń zalecenie" />
+								<Button layoutX="54.0" layoutY="237.0" mnemonicParsing="false" onMouseClicked="#updatePacjent" prefWidth="120.0" text="Zatwierdź edycję" />
+								<TextField fx:id="getNazwaLeku" editable="false" layoutX="1045.0" layoutY="164.0" prefHeight="26.0" prefWidth="146.0" promptText="Nazwa Leku" />
+								<TextField fx:id="addIloscTabletek" alignment="TOP_LEFT" layoutX="1045.0" layoutY="209.0" prefHeight="26.0" prefWidth="146.0" promptText="Ilosc" />
+								<Label layoutX="258.0" layoutY="137.0" text="Pesel">
+									<font>
+										<Font size="11.0" />
+									</font>
+								</Label>
+								<Label layoutX="260.0" layoutY="189.0" text="Imię">
+									<font>
+										<Font size="11.0" />
+									</font>
+								</Label>
+								<Label layoutX="77.0" layoutY="117.0" text="Wybierz akcję" />
+								<Label layoutX="235.0" layoutY="240.0" prefHeight="18.0" prefWidth="51.0" text="Nazwisko">
+									<font>
+										<Font size="11.0" />
+									</font>
+								</Label>
+								<Label layoutX="438.0" layoutY="144.0" text="Płeć [M/K]">
+									<font>
+										<Font size="11.0" />
+									</font>
+								</Label>
+								<Label layoutX="431.0" layoutY="183.0" text="Wzrost [cm]">
+									<font>
+										<Font size="11.0" />
+									</font>
+								</Label>
+								<Label layoutX="457.0" layoutY="222.0" text="Wiek">
+									<font>
+										<Font size="11.0" />
+									</font>
+								</Label>
+								<Label layoutX="439.0" layoutY="263.0" text="Waga [kg]">
+									<font>
+										<Font size="11.0" />
+									</font>
+								</Label>
+								<Label layoutX="672.0" layoutY="136.0" text="Nazwa leku">
+									<font>
+										<Font size="11.0" />
+									</font>
+								</Label>
+								<Label layoutX="629.0" layoutY="191.0" prefHeight="16.0" prefWidth="101.0" text="Dawka dzienna [mg]">
+									<font>
+										<Font size="11.0" />
+									</font>
+								</Label>
+								<Label layoutX="676.0" layoutY="241.0" text="Liczba dni ">
+									<font>
+										<Font size="11.0" />
+									</font>
+								</Label>
+								<Label layoutX="486.0" layoutY="108.0" text="Szczegóły zalecenia" />
+								<Button layoutX="1246.0" layoutY="185.0" mnemonicParsing="false" onAction="#updateLeki" onMouseClicked="#updateLeki" text="Zapisz stan" />
+								<Label layoutX="411.0" layoutY="66.0" text="Panel dodawania zalecenia" />
+								<Label layoutX="1045.0" layoutY="75.0" text="Panel aktualizacji stanu magazynowego leku" />
+							</children>
+						</AnchorPane>
+					</content>
+				</TitledPane>
+
+			</children>
+		</AnchorPane>
+	</center>
+</BorderPane>
